@@ -1,0 +1,200 @@
+21、关于select机制，下面说法正确的是（）
+
+A. select机制用来处理异步IO问题
+B. select机制最大的一条限制就是每个case语句里必须是一个IO操作
+C. golang在语言级别支持select关键字
+D. select关键字的用法与switch语句非常类似，后面要带判断条件
+
+参考答案：ABC
+10、对于常量定义zero(const zero = 0.0)，zero是浮点型常量（）
+参考答案：F
+14、下面代码中的指针p为野指针，因为返回的栈内存在函数结束时会被释放（）
+
+type TimesMatcher struct {
+        base int
+}
+func NewTimesMatcher(base int) *TimesMatcher{
+        return &TimesMatcher{base:base}
+}
+func main() {
+        p := NewTimesMatcher(3)
+        ...
+}
+
+参考答案：F
+22、使用for range迭代map时每次迭代的顺序可能不一样，因为map的迭代是随机的（）
+参考答案：T
+24、golang中没有构造函数的概念，对象的创建通常交由一个全局的创建函数来完成，以NewXXX来命名（）
+参考答案：T
+25、import后面的最后一个元素是包名（）
+参考答案：F
+
+3、golang中没有隐藏的this指针，这句话的含义是（）
+
+A. 方法施加的对象显式传递，没有被隐藏起来
+B. golang沿袭了传统面向对象编程中的诸多概念，比如继承、虚函数和构造函数
+C. golang的面向对象表达更直观，对于面向过程只是换了一种语法形式来表达
+D. 方法施加的对象不需要非得是指针，也不用非得叫this
+
+参考答案：ACD
+6、下面赋值正确的是（）
+
+A. var x = nil
+B. var x interface{} = nil
+C. var x string = nil
+D. var x error = nil
+
+参考答案：BD
+8、从切片中删除一个元素，下面的算法实现正确的是（）
+
+A.
+func (s *Slice)Remove(value interface{}) error {
+        for i, v := range *s {
+            if isEqual(value, v) {
+                if i== len(*s) - 1 {
+                    *s = (*s)[:i]
+                }else {
+                    *s = append((*s)[:i],(*s)[i + 2:]...)
+                }
+                return nil
+            }
+        }
+        return ERR_ELEM_NT_EXIST
+}
+
+B.
+func (s *Slice)Remove(value interface{}) error {
+        for i, v := range *s {
+            if isEqual(value, v) {
+                *s = append((*s)[:i],(*s)[i + 1:])
+                return nil
+            }
+        }
+        return ERR_ELEM_NT_EXIST
+}
+
+C.
+func (s *Slice)Remove(value interface{}) error {
+        for i, v := range *s {
+            if isEqual(value, v) {
+                delete(*s, v)
+                return nil
+            }
+        }
+        return ERR_ELEM_NT_EXIST
+}
+
+D.
+func (s *Slice)Remove(value interface{}) error {
+        for i, v := range *s {
+            if isEqual(value, v) {
+                *s = append((*s)[:i],(*s)[i + 1:]...)
+                return nil
+            }
+        }
+        return ERR_ELEM_NT_EXIST
+}
+
+参考答案：D
+13、关于GoMock，下面说法正确的是（）
+
+A. GoMock可以对interface打桩
+B. GoMock可以对类的成员函数打桩
+C. GoMock可以对函数打桩
+D. GoMock打桩后的依赖注入可以通过GoStub完成
+
+参考答案：AD
+14、关于接口，下面说法正确的是（）
+
+A. 只要两个接口拥有相同的方法列表（次序不同不要紧），那么它们就是等价的，可以相互赋值
+B. 如果接口A的方法列表是接口B的方法列表的子集，那么接口B可以赋值给接口A
+C. 接口查询是否成功，要在运行期才能够确定
+D. 接口赋值是否可行，要在运行期才能够确定
+
+参考答案：ABC
+15、golang中大多数数据类型都可以转化为有效的JSON文本，下面几种类型除外（）
+
+A. 指针
+B. channel
+C. complex
+D. 函数
+
+参考答案：BCD
+17、关于函数返回值的错误设计，下面说法正确的是（）
+
+A. 如果失败原因只有一个，则返回bool
+B. 如果失败原因超过一个，则返回error
+C. 如果没有失败原因，则不返回bool或error
+D. 如果重试几次可以避免失败，则不要立即返回bool或error
+
+参考答案：ABCD
+22、关于异常的触发，下面说法正确的是（）
+
+A. 空指针解析
+B. 下标越界
+C. 除数为0
+D. 调用panic函数
+
+参考答案：ABCD
+24、关于beego框架，下面说法正确的是（）
+
+A. beego是一个golang实现的轻量级HTTP框架
+B. beego可以通过注释路由、正则路由等多种方式完成url路由注入
+C. 可以使用bee new工具生成空工程，然后使用bee run命令自动热编译
+D. beego框架只提供了对url路由的处理， 而对于MVC架构中的数据库部分未提供框架支持
+
+参考答案：ABC
+25、关于goconvey，下面说法正确的是（）
+
+A. goconvey是一个支持golang的单元测试框架
+B. goconvey能够自动监控文件修改并启动测试，并可以将测试结果实时输出到web界面
+C. goconvey提供了丰富的断言简化测试用例的编写
+D. goconvey无法与go test集成
+
+参考答案：ABC
+
+26、关于go vet，下面说法正确的是（）
+
+A. go vet是golang自带工具go tool vet的封装
+B. 当执行go vet database时，可以对database所在目录下的所有子文件夹进行递归检测
+C. go vet可以使用绝对路径、相对路径或相对GOPATH的路径指定待检测的包
+D. go vet可以检测出死代码
+
+参考答案：ACD
+27、关于map，下面说法正确的是（）
+
+A. map反序列化时json.unmarshal的入参必须为map的地址
+B. 在函数调用中传递map，则子函数中对map元素的增加不会导致父函数中map的修改
+C. 在函数调用中传递map，则子函数中对map元素的修改不会导致父函数中map的修改
+D. 不能使用内置函数delete删除map的元素
+
+参考答案：A
+
+28、关于GoStub，下面说法正确的是（）
+
+A. GoStub可以对全局变量打桩
+B. GoStub可以对函数打桩
+C. GoStub可以对类的成员方法打桩
+D. GoStub可以打动态桩，比如对一个函数打桩后，多次调用该函数会有不同的行为
+
+参考答案：ABD
+6、下面的程序的运行结果是__________
+
+type Slice []int
+func NewSlice() Slice {
+         return make(Slice, 0)
+}
+func (s* Slice) Add(elem int) *Slice {
+         *s = append(*s, elem)
+         fmt.Print(elem)
+         return s
+}
+func main() {  
+         s := NewSlice()
+         defer s.Add(1).Add(2)
+         s.Add(3)
+}
+
+参考答案：
+
+132
